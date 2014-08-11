@@ -1,3 +1,9 @@
 <h2>Welcome</h2>
 
-<%= link_to "About", about_path %>
+<%= link_to "About", about_path %><br>
+<%= link_to "New gif", new_gif_path %>
+
+<% @gif.each do |gif| %>
+  <img src ="<%= gif.url %>">
+<p><%= gif.title %></p>
+<% end %>

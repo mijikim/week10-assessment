@@ -1,0 +1,28 @@
+<h1>New gif</h1>
+
+<%= form_for @gif, html: { class: "gif-form"} do |f| %>
+<% if @gif.errors.any? %>
+    <div class="errors">
+      <%@gif.errors.full_messages.each do |message| %>
+    <li class="error"><%= message %></li>
+<% end %>
+<% end %>
+      </div>
+  <div>
+    <%= f.label :url %>
+    <%= f.text_field :url, autofocus: true %>
+  </div>
+  <% if @gif.errors.include?(:url) %>
+    <p class="error-explanation"><%= @gif.errors[:url].first %>
+  <% end %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  <% if @gif.errors.include?(:title) %>
+    <p class="error-explanation"><%= @gif.errors[:title].first %>
+  <% end %>
+  <div>
+    <%= f.submit "Create gif" %>
+  </div>
+<% end %>
